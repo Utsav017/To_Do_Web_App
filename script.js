@@ -52,38 +52,38 @@ function loadTasks() {
           li.dataset.reward = task.reward || "";
 
           li.innerHTML = `
-            <div>
-              <span class="${
-                task.status == 1 ? "completed" : ""
-              }" contenteditable="true"
-                    onblur="editTask(${task.id}, this.innerText)">
-                ${task.task}
-              </span><br>
-              <small>
-                📁 ${
-                  task.category
-                } | 🏷️ <span class="priority ${task.priority.toLowerCase()}">${
+  <div class="task-main">
+    <input type="checkbox" class="task-checkbox" ${
+      task.status == 1 ? "checked" : ""
+    } 
+           onchange="toggleComplete(${task.id}, this.checked)">
+    <span class="${task.status == 1 ? "completed" : ""}"
+          contenteditable="true"
+          onblur="editTask(${task.id}, this.innerText)">
+      ${task.task}
+    </span>
+    <button class="delete-btn" onclick="deleteTask(${
+      task.id
+    })">Delete</button>
+  </div>
+  <small>
+    📁 ${
+      task.category
+    } | 🏷️ <span class="priority ${task.priority.toLowerCase()}">${
             task.priority
           }</span>
-                | <span class="pin-icon" onclick="togglePin(${task.id}, ${
+    | <span class="pin-icon" onclick="togglePin(${task.id}, ${
             task.pinned
           })">
-                    ${task.pinned == 1 ? "📌 Pinned" : "📍 Pin"}
-                  </span>
-              </small>
-              ${
-                task.reward
-                  ? `<br><small class="reward-line">🎉 Reward: ${task.reward}</small>`
-                  : ""
-              }
-            </div>
-            <div>
-              <input type="checkbox" ${task.status == 1 ? "checked" : ""} 
-                     onchange="toggleComplete(${task.id}, this.checked)">
-              <button class="delete-btn" onclick="deleteTask(${
-                task.id
-              })">Delete</button>
-            </div>`;
+        ${task.pinned == 1 ? "📌 Pinned" : "📍 Pin"}
+      </span>
+  </small>
+  ${
+    task.reward
+      ? `<small class="reward-line">🎉 Reward: ${task.reward}</small>`
+      : ""
+  }
+`;
 
           ul.appendChild(li);
         });
@@ -183,7 +183,6 @@ function toggleComplete(id, checked) {
     }, 200);
   });
 }
-
 
 function editTask(id, newText) {
   fetch("edit_task.php", {
