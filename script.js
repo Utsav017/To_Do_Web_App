@@ -182,7 +182,6 @@ function toggleComplete(id, checked) {
   });
 }
 
-
 function editTask(id, newText) {
   fetch("edit_task.php", {
     method: "POST",
