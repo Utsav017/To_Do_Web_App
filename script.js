@@ -2,21 +2,23 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 
 document.getElementById("taskForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const task = document.getElementById("taskInput").value;
-  const category = document.getElementById("categoryInput").value;
-  const deadline = document.getElementById("deadlineInput").value;
-  const priority = document.getElementById("priorityInput").value;
+  const task = document.getElementById("task").value;
+  const category = document.getElementById("category").value;
+  const deadline = document.getElementById("deadline").value;
+  const priority = document.getElementById("priority").value;
+  const reward = document.getElementById("reward").value; // ✅ new
 
   fetch("add_task.php", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: `task=${encodeURIComponent(task)}&category=${encodeURIComponent(
       category
-    )}&deadline=${deadline}&priority=${priority}`,
+    )}&deadline=${deadline}&priority=${priority}&reward=${encodeURIComponent(
+      reward
+    )}`,
   }).then(() => {
-    document.getElementById("taskInput").value = "";
-    document.getElementById("deadlineInput").value = "";
     loadTasks();
+    form.reset(); // clear form
   });
 });
 
@@ -47,6 +49,7 @@ function loadTasks() {
         grouped[dateKey].forEach((task) => {
           const li = document.createElement("li");
           li.setAttribute("data-id", task.id);
+          li.dataset.reward = task.reward || "";
 
           li.innerHTML = `
             <div>
@@ -68,6 +71,11 @@ function loadTasks() {
                     ${task.pinned == 1 ? "📌 Pinned" : "📍 Pin"}
                   </span>
               </small>
+              ${
+                task.reward
+                  ? `<br><small>🎉 Reward: ${task.reward}</small>`
+                  : ""
+              }
             </div>
             <div>
               <input type="checkbox" ${task.status == 1 ? "checked" : ""} 
@@ -155,13 +163,25 @@ function deleteTask(id) {
   }).then(loadTasks);
 }
 
-function toggleComplete(id, completed) {
-  fetch("update_status.php", {
+function toggleComplete(id, checked) {
+  fetch("toggle_complete.php", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `id=${id}&status=${completed ? 1 : 0}`,
-  }).then(loadTasks);
+    body: `id=${id}&status=${checked ? 1 : 0}`,
+  }).then(() => {
+    loadTasks();
+
+    // Show reward after marking complete
+    if (checked) {
+      const taskEl = document.querySelector(`li[data-id='${id}']`);
+      const rewardText = taskEl?.getAttribute("data-reward");
+      if (rewardText) {
+        alert("🎉 Task complete! Reward yourself: " + rewardText);
+      }
+    }
+  });
 }
+
 
 function editTask(id, newText) {
   fetch("edit_task.php", {
