@@ -164,26 +164,26 @@ function deleteTask(id) {
 }
 
 function toggleComplete(id, checked) {
-  fetch("toggle_complete.php", {
+  fetch("update_status.php", {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: `id=${id}&status=${checked ? 1 : 0}`,
   }).then(() => {
-    loadTasks();
+    // ✅ Wait a bit before reloading UI
+    setTimeout(() => {
+      loadTasks();
 
-    // Show reward after marking complete
-   if (checked) {
-     const taskEl = document.querySelector(`li[data-id='${id}']`);
-     const rewardText = taskEl?.getAttribute("data-reward");
-
-     if (rewardText) {
-       const msg = `🎉 Task complete!\nReward yourself: ${rewardText}`;
-       setTimeout(() => alert(msg), 200);
-     }
-   }
-
+      if (checked) {
+        const taskEl = document.querySelector(`li[data-id='${id}']`);
+        const rewardText = taskEl?.getAttribute("data-reward");
+        if (rewardText) {
+          showToast("🎉 Task complete! Reward yourself: " + rewardText);
+        }
+      }
+    }, 200);
   });
 }
+
 
 function editTask(id, newText) {
   fetch("edit_task.php", {
@@ -203,4 +203,17 @@ function togglePin(id, pinned) {
 }
 function toggleTheme() {
   document.body.classList.toggle("dark");
+}
+function showToast(message) {
+  const container = document.getElementById("toast-container");
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+
+  container.appendChild(toast);
+
+  // Remove toast after 4s
+  setTimeout(() => {
+    toast.remove();
+  }, 4000);
 }

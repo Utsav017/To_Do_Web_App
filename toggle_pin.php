@@ -1,8 +1,7 @@
 <?php
 require 'db.php';
-
-if (isset($_POST['id']) && isset($_POST['pinned'])) {
+if (isset($_POST['id']) && isset($_POST['status'])) {
     $id = intval($_POST['id']);
-    $pinned = intval($_POST['pinned']);
-    $conn->query("UPDATE tasks SET pinned = $pinned WHERE id = $id");
+    $status = intval($_POST['status']);
+    $conn->query("UPDATE tasks SET status = $status WHERE id = $id");
 }
