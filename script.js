@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", loadTasks);
 
 document.getElementById("taskForm").addEventListener("submit", function (e) {
   e.preventDefault();
-  const task = document.getElementById("task").value;
-  const category = document.getElementById("category").value;
-  const deadline = document.getElementById("deadline").value;
-  const priority = document.getElementById("priority").value;
-  const reward = document.getElementById("reward").value; // ✅ new
+  const task = document.getElementById("taskInput").value;
+  const category = document.getElementById("categoryInput").value;
+  const deadline = document.getElementById("deadlineInput").value;
+  const priority = document.getElementById("priorityInput").value;
+  const reward = document.getElementById("rewardInput").value; // ✅ new
 
   fetch("add_task.php", {
     method: "POST",
@@ -18,7 +18,7 @@ document.getElementById("taskForm").addEventListener("submit", function (e) {
     )}`,
   }).then(() => {
     loadTasks();
-    form.reset(); // clear form
+    document.getElementById("taskForm").reset(); // clear form
   });
 });
 
