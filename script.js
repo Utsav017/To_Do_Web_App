@@ -73,7 +73,7 @@ function loadTasks() {
               </small>
               ${
                 task.reward
-                  ? `<br><small>🎉 Reward: ${task.reward}</small>`
+                  ? `<br><small class="reward-line">🎉 Reward: ${task.reward}</small>`
                   : ""
               }
             </div>
@@ -172,13 +172,16 @@ function toggleComplete(id, checked) {
     loadTasks();
 
     // Show reward after marking complete
-    if (checked) {
-      const taskEl = document.querySelector(`li[data-id='${id}']`);
-      const rewardText = taskEl?.getAttribute("data-reward");
-      if (rewardText) {
-        alert("🎉 Task complete! Reward yourself: " + rewardText);
-      }
-    }
+   if (checked) {
+     const taskEl = document.querySelector(`li[data-id='${id}']`);
+     const rewardText = taskEl?.getAttribute("data-reward");
+
+     if (rewardText) {
+       const msg = `🎉 Task complete!\nReward yourself: ${rewardText}`;
+       setTimeout(() => alert(msg), 200);
+     }
+   }
+
   });
 }
 
@@ -197,4 +200,7 @@ function togglePin(id, pinned) {
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: `id=${id}&pinned=${newPin}`,
   }).then(loadTasks);
+}
+function toggleTheme() {
+  document.body.classList.toggle("dark");
 }
