@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Register | My To-Do</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #1c92d2, #f2fcfe);
+            color: #222;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .auth-box {
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .auth-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .auth-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+
+        .auth-box button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .auth-box button:hover {
+            background: #0056b3;
+        }
+
+        .auth-box .link {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .auth-box .link a {
+            color: #007bff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="auth-box" action="register.php" method="POST">
+        <h2>📝 Create Your Account</h2>
+        <input type="text" name="username" placeholder="👤 Choose a username" required />
+        <input type="password" name="password" placeholder="🔒 Choose a password" required />
+        <button type="submit">Register</button>
+        <div class="link">
+            Already have an account? <a href="login.html">Login</a>
+        </div>
+    </form>
+</body>
+
+</html>
