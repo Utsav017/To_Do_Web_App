@@ -16,40 +16,47 @@ A clean, responsive, and feature-rich To-Do List web application built using **H
 - 🎉 Optional reward after completion
 - 🌗 Dark mode toggle
 - 🔔 Toast notification on task completion
+- 📱 **Fully responsive & mobile-friendly design** (works great on phones, tablets, and desktops)
+- ♿ **Accessibility & touch-friendly improvements** (focus styles, large tap targets, reduced motion support)
+- 👤 **User registration and login pages included** (multi-user support ready)
 
 ---
 
 ## 📸 UI Preview
 
 > <img width="1600" height="711" alt="image" src="https://github.com/user-attachments/assets/3c3e9066-8d7f-43ce-8737-efe595749000" />
+>
+> *Now fully mobile-friendly! The app adapts beautifully to all screen sizes: mobile, tablet, and desktop.*
 
 ---
 
 ## 📁 Folder Structure
 
 ```
-
 📦 todo-list-app/
 │
 ├── index.html              # Main interface
-├── style.css               # All styles (light + dark mode)
+├── style.css               # All styles (light + dark mode, responsive)
 ├── script.js               # Handles all UI and logic
 ├── db.php                  # MySQL connection
-├── add\_task.php            # Adds new task
-├── delete\_task.php         # Deletes a task
-├── edit\_task.php           # Edits task name
-├── get\_tasks.php           # Returns all tasks (JSON)
-├── reorder\_tasks.php       # Updates task order
-├── toggle\_pin.php          # Pins/unpins tasks
-├── update\_status.php       # Marks task complete/incomplete
-
+├── add_task.php            # Adds new task
+├── delete_task.php         # Deletes a task
+├── edit_task.php           # Edits task name
+├── get_tasks.php           # Returns all tasks (JSON)
+├── reorder_tasks.php       # Updates task order
+├── toggle_pin.php          # Pins/unpins tasks
+├── update_status.php       # Marks task complete/incomplete
+├── register.html           # User registration page (frontend)
+├── login.html              # User login page (frontend)
+├── register.php            # User registration logic (backend)
+├── login.php               # User login logic (backend)
 ```
 
 ---
 
 ## 🛠️ Technologies Used
 
-- Frontend: HTML5, CSS3, Vanilla JavaScript
+- Frontend: HTML5, CSS3 (with responsive design), Vanilla JavaScript
 - Backend: PHP 7+
 - Database: MySQL
 - Drag-and-drop: [SortableJS](https://sortablejs.github.io/Sortable/)
@@ -107,7 +114,6 @@ Open browser at `http://localhost:8000`
 
 ## 📋 Todos for Future Improvements
 
-- 🔐 User login system (multi-user support)
 - 📅 Calendar view
 - 🔔 Reminders & notifications
 - 📊 Task analytics dashboard
@@ -118,3 +124,11 @@ Open browser at `http://localhost:8000`
 ## 🤝 License
 
 This project is open-source and free to use. MIT license.
+
+---
+
+<sub>
+This Web App is created by **Shivansh Gupta**  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white&style=flat-square)](https://www.linkedin.com/in/shivansh-gupta017)
+[![GitHub](https://img.shields.io/badge/GitHub-@Utsav017-black?logo=github&logoColor=white&style=flat-square)](https://github.com/Utsav017)
+</sub>

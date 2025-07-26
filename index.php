@@ -15,10 +15,10 @@ if (!isset($_SESSION['user_id'])) {
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body style="min-height:100vh;display:flex;flex-direction:column;">
     <div style="
   display: flex;
   justify-content: flex-end;
@@ -70,6 +70,17 @@ if (!isset($_SESSION['user_id'])) {
 
     <script src="script.js"></script>
     <div id="toast-container"></div>
+    
+    <footer class="main-footer">
+    This Web App is created by <strong>Shivansh Gupta</strong>
+    <a href="https://www.linkedin.com/in/shivansh-gupta017/" target="_blank" title="LinkedIn" style="margin-left:8px;">
+      <i class="fa-brands fa-linkedin"></i>
+    </a>
+    <a href="https://github.com/Utsav017" target="_blank" title="GitHub" style="margin-left:8px;">
+      <i class="fa-brands fa-github"></i>
+    </a>
+  </footer>
+    
 </body>
 
 </html>
