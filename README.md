@@ -43,7 +43,7 @@ A clean, responsive, and feature-rich To-Do List web application built using **H
 ├── toggle\_pin.php          # Pins/unpins tasks
 ├── update\_status.php       # Marks task complete/incomplete
 
-````
+```
 
 ---
 
@@ -60,9 +60,10 @@ A clean, responsive, and feature-rich To-Do List web application built using **H
 ## 📦 Setup Instructions
 
 ### 1. Clone or Download the Project
+
 ```bash
 git clone https://github.com/Utsav017/to_do_web_app.git
-````
+```
 
 ### 2. Import the SQL Table
 
@@ -106,15 +107,14 @@ Open browser at `http://localhost:8000`
 
 ## 📋 Todos for Future Improvements
 
-* 🔐 User login system (multi-user support)
-* 📅 Calendar view
-* 🔔 Reminders & notifications
-* 📊 Task analytics dashboard
-* ☁️ Cloud deployment (Netlify + backend API or full-stack PHP host)
+- 🔐 User login system (multi-user support)
+- 📅 Calendar view
+- 🔔 Reminders & notifications
+- 📊 Task analytics dashboard
+- ☁️ Cloud deployment (Netlify + backend API or full-stack PHP host)
 
 ---
 
 ## 🤝 License
 
 This project is open-source and free to use. MIT license.
-
