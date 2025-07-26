@@ -127,8 +127,7 @@ This project is open-source and free to use. MIT license.
 
 ---
 
-<sub>
+
 This Web App is created by **Shivansh Gupta**  
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white&style=flat-square)](https://www.linkedin.com/in/shivansh-gupta017)
 [![GitHub](https://img.shields.io/badge/GitHub-@Utsav017-black?logo=github&logoColor=white&style=flat-square)](https://github.com/Utsav017)
-</sub>
